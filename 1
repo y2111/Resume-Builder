@@ -1,0 +1,32 @@
+CREATE TABLE skills (
+ id int(11) NOT NULL AUTO_INCREMENT,
+ skillname varchar(100) NOT NULL,
+ user_id int(11) NOT NULL,
+ PRIMARY KEY (id),
+ KEY user_id (user_id),
+ CONSTRAINT skills_ibfk_1 FOREIGN KEY (user_id) REFERENCES user (id)
+)  AUTO_INCREMENT=1;
+
+CREATE TABLE userdetails (
+ id int(11) NOT NULL AUTO_INCREMENT,
+ name varchar(20) NOT NULL,
+ email varchar(120) NOT NULL,
+ designation varchar(120) NOT NULL,
+ phoneno varchar(15) NOT NULL,
+ profile text NOT NULL,
+ user_id int(11) NOT NULL,
+ PRIMARY KEY (id),
+ KEY user_id (user_id),
+ CONSTRAINT userdetails_ibfk_1 FOREIGN KEY (user_id) REFERENCES user (id)
+)AUTO_INCREMENT=1;
+
+CREATE TABLE user (
+ id int(11) NOT NULL AUTO_INCREMENT,
+ username varchar(20) NOT NULL,
+ email varchar(120) NOT NULL,
+ image_file varchar(20) NOT NULL,
+ password varchar(60) NOT NULL,
+ PRIMARY KEY (id),
+ UNIQUE KEY username (username),
+ UNIQUE KEY email (email)
+) AUTO_INCREMENT=1 ;
